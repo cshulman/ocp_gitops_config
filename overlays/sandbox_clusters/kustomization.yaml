@@ -6,8 +6,8 @@ resources:
 - ../all_but_nonprod/
 - ../all_but_production/
 - ../../cluster_apps/rbac/
-- ../../cluster_apps/misc_manifests/  # add project request template with quotas
-- ../../cluster_apps/patch_operator/patches/ # make project request template be default
+  #- ../../cluster_apps/misc_manifests/  # add project request template with quotas
+  #- ../../cluster_apps/patch_operator/patches/ # make project request template be default
 
 commonAnnotations:
   environment: sandbox
