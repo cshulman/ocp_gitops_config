@@ -1,0 +1,19 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: Patch
+metadata:
+  name:  project-request-template
+  namespace: patch-operator
+spec:
+  serviceAccountRef:
+    name: patch-superuser
+  patches:
+    set-project-request-template:
+      targetObjectRef:
+        apiVersion: config.openshift.io/v1
+        kind: Project
+        name: cluster
+      patchTemplate: |
+        spec:
+          projectRequestTemplate:
+            name: project-request
+      patchType: application/merge-patch+json

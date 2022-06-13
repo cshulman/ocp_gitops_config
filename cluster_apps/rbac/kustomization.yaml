@@ -1,0 +1,6 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ocpadmin-cluster-admin.yaml
+- ocpdev-cluster-admin.yaml
+- ocpdev-cluster-reader.yaml

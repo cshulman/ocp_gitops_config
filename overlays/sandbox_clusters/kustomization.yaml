@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../all_clusters/
+- ../all_but_management/
+- ../all_but_nonprod/
+- ../all_but_production/
+- ../../cluster_apps/rbac/
+- ../../cluster_apps/misc_manifests/  # add project request template with quotas
+- ../../cluster_apps/patch_operator/patches/ # make project request template be default
+
+commonAnnotations:
+  environment: sandbox
+
+patchesStrategicMerge:
+# Don't apply crb to give devs cluster reader
+- |-
+  apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    name: ocpdevs-cluster-reader
+  $patch: delete
