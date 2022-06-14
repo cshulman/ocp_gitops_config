@@ -35,4 +35,11 @@ For simplicity, all clusters that will be configured via the Argo instance on th
 - A `gitops-superuser` service account with,
 - A ClusterRoleBinding which provides the `gitops-superuser`with `cluster-admin` role.
 
-Manifests to create all resources can be found [here](https://github.com/cshulman/ocp_gitops_config/tree/main/gitops-cluster-setup/new_cluster_config).
+Manifests to create the above mentioned resources can be found [here](https://github.com/cshulman/ocp_gitops_config/tree/main/gitops-cluster-setup/new_cluster_config).
+
+- To retrieve the bearer token from the service account run the following
+`oc sa get-token -n gitops-config`
+
+*This assumes a service account named `gitops-superuser` which exists in the `gitops-config` namespace and should be modified as neccessary.*
+
+## Cluster / Application Creation
