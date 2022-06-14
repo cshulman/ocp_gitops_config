@@ -4,4 +4,4 @@ resources:
 # Add all cluster "applictions"
 - sbx/sbx-rosa
 - nonprod/nonprod-rosa
-- production/prod-rosa
+- prod/prod-rosa
