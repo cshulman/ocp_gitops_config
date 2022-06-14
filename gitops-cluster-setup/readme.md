@@ -6,7 +6,7 @@ The secret contains:
 - The bearer token of a user (preferably a service account) with the neccessary authorization required to apply the configurations to the cluster. This service account will very likely require cluster-admin permissions. 
 - Name and server of the cluster to be configured
 - It also must contain the `argocd.argoproj.io/secret-type: cluster` label. 
-An example secret is shown below and can be found [here]([https://www.example.com](https://github.com/cshulman/ocp_gitops_config/blob/main/gitops-cluster-setup/gitops-cluster-secret.yaml))
+An example secret is shown below and can be found [here](https://github.com/cshulman/ocp_gitops_config/blob/main/gitops-cluster-setup/gitops-cluster-secret.yaml)
 ```
 apiVersion: v1
 kind: Secret
@@ -35,4 +35,4 @@ For simplicity, all clusters that will be configured via the Argo instance on th
 - A `gitops-superuser` service account with,
 - A ClusterRoleBinding which provides the `gitops-superuser`with `cluster-admin` role.
 
-Manifests to create all resources can be found [here]([https://www.example.com](https://github.com/cshulman/ocp_gitops_config/tree/main/gitops-cluster-setup/new_cluster_config)). 
+Manifests to create all resources can be found [here](https://github.com/cshulman/ocp_gitops_config/tree/main/gitops-cluster-setup/new_cluster_config).
