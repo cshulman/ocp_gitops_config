@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: <cluster-name>-config
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: <cluster-url>
+  project: default
+  source:
+    path: <repo-path>
+    repoURL: <repo-url>
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=false
