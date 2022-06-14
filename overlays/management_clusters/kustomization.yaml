@@ -3,9 +3,7 @@ kind: Kustomization
 resources:
 - ../all_clusters # adds all cluster apps
 - ../all_but_sandbox # removes ocpdev admin crb
-- ../all_but_nonprod
-- ../all_but_production
-- ../../cluster_apps/tekton/ # add anything that is only for management clusters
+- ../../bases/tekton/ # add anything that is only for management clusters
 
 commonAnnotations:
   environment: management

@@ -2,9 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - ../all_clusters # adds all cluster apps
-- ../all_but_management
 - ../all_but_sandbox # removes ocpdev admin crb
-- ../all_but_nonprod
 
 commonAnnotations:
   environment: production
