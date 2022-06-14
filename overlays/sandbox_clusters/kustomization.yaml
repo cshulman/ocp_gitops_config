@@ -2,9 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - ../all_clusters/
-- ../../bases/rbac/
-  #- ../../bases/misc_manifests/  # add project request template with quotas
-  #- ../../bases/patch_operator/patches/ # make project request template be default
+
+# Add any directory (with kustomization.yaml) of manifests to be applied to sandbox clusters
+
+#- ../../bases/misc_manifests/  # add project request template with quotas
+#- ../../bases/patch_operator/patches/ # make project request template be default
 
 commonAnnotations:
   environment: sandbox

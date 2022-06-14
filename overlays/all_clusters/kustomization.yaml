@@ -4,6 +4,7 @@ resources:
 # Add any directory (with kustomization.yaml) of manifests to be applied to all clusters
 - ../../bases/namespace_config_operator/
 - ../../bases/patch_operator/
+- ../../bases/rbac/
 
 commonAnnotations:
   environment: all-clusters

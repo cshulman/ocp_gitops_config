@@ -6,8 +6,16 @@ resources:
 
 # Add configurations for management cluster
 - ../all_clusters # adds all cluster apps
-- ../all_but_sandbox # removes ocpdev admin crb
-- ../../bases/tekton/ # add anything that is only for management clusters
+- ../../bases/tekton # add anything that is only for management clusters
 
 commonAnnotations:
   environment: management
+
+patchesStrategicMerge:
+# Don't apply crb to give devs cluster admin, only cluster-reader will apply
+- |-
+  apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    name: ocpdevs-cluster-admin
+  $patch: delete

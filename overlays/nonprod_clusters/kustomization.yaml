@@ -2,7 +2,17 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - ../all_clusters # adds all cluster apps
-- ../all_but_sandbox # removes ocpdev admin crb
+
+# Add any directory (with kustomization.yaml) of manifests to be applied to nonprod clusters
 
 commonAnnotations:
   environment: nonprod
+
+patchesStrategicMerge:
+# Don't apply crb to give devs cluster admin, only cluster-reader will apply
+- |-
+  apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    name: ocpdevs-cluster-admin
+  $patch: delete
