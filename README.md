@@ -1,2 +1,8 @@
-# ocp_gitops_config
-ocp gitops placeholder repo
+# Configuration Repo to Configure OCP clusters
+
+This repo follows the "App of Apps" pattern where a management cluster manages the configuration of multiple additional clusters.
+
+
+- bases: configuration manifests which ArgoCD will apply
+- overlays: utilizing Kustomize, it depicts which bases to apply 
+- gitops_cluster_setup: information and manifests for adding a new cluster to be configured by the management cluster
