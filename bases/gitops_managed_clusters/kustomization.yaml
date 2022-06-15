@@ -2,6 +2,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 # Add all cluster "applictions"
-- sbx/cluster_sandbox
-- nonprod/cluster_nonprod
-- prod/cluster_production
+- sbx/ # add all defined sandbox clusters
+- nonprod/ # add all defined nonprod clusters
+- prod/ # add all defined production clusters
