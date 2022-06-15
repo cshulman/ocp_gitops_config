@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nonprod-rosa-config
+  name: nonprod-config
   namespace: openshift-gitops
 spec:
   destination:
-    server: https://api.nonprod-rosa.bqnc.p1.openshiftapps.com:6443
+    server: https://api.nonprod.01q7.p1.openshiftapps.com:6443
   project: default
   source:
     path: overlays/nonprod_clusters

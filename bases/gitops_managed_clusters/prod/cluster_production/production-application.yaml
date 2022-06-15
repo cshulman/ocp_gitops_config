@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prod-rosa-config
+  name: production-config
   namespace: openshift-gitops
 spec:
   destination:
-    server: https://api.prod-rosa.o815.p1.openshiftapps.com:6443
+    server: https://api.production.6lmm.p1.openshiftapps.com:6443
   project: default
   source:
     path: overlays/production_clusters
