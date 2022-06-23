@@ -2,4 +2,4 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 # Add all nonprod cluster "applications"
-- cluster_nonprod/nonprod-application.yaml
+- nonprod-rosa_cluster/nonprod-application.yaml

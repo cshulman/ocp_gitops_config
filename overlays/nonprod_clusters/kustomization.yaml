@@ -1,9 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-resources:
-- ../all_clusters # adds all cluster apps
+bases:
+# Add all_clusters overlay so they're applied to nonprod clusters
+- ../all_clusters
 
-# Add any directory (with kustomization.yaml) of manifests to be applied to nonprod clusters
+# Add any additional bases (with kustomization.yaml) to be applied to nonprod clusters
 
 commonAnnotations:
   environment: nonprod

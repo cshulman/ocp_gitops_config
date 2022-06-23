@@ -2,4 +2,4 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 # Add all sandbox cluster "applications"
-- cluster_sandbox/sandbox-application.yaml
+- sbx-rosa_cluster/sandbox-application.yaml

@@ -1,12 +1,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-resources:
-# Add all cluster "applications" so management cluster can configure via gitops
-- ../../bases/gitops_managed_clusters
+bases:
+# Add all_clusters overlay so they're applied to management clusters
+- ../all_clusters
 
-# Add configurations for management cluster
-- ../all_clusters # adds all cluster apps
-- ../../bases/tekton # add anything that is only for management clusters
+
+# Add any additional bases (with kustomization.yaml) to be applied to management clusters
+- ../../bases/tekton/
+- ../../bases/gitops_managed_clusters/ # Add all cluster "applications" for management cluster to manage
 
 commonAnnotations:
   environment: management
