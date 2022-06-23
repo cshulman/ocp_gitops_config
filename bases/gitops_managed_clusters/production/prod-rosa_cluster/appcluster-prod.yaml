@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: appcluster-prod-rosa
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: https://api.prod-rosa.hstg.p1.openshiftapps.com:6443
+  project: default
+  source:
+    path: overlays/application_clusters
+    repoURL: git@github.com:cshulman/ocp_gitops_config.git
+    targetRevision: overlay_testing
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=false

@@ -3,3 +3,5 @@ kind: Kustomization
 resources:
 # Add all production cluster "applications"
 - prod-rosa_cluster/production-application.yaml
+# Test multiple overlays to target 1 cluster
+- prod-rosa_cluster/appcluster-prod.yaml

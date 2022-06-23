@@ -3,3 +3,5 @@ kind: Kustomization
 resources:
 # Add all nonprod cluster "applications"
 - nonprod-rosa_cluster/nonprod-application.yaml
+# Test multiple overlays to target 1 cluster
+- nonprod-rosa_cluster/appcluster-nonprod.yaml
