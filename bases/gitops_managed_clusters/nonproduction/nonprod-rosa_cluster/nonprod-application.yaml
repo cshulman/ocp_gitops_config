@@ -10,7 +10,7 @@ spec:
   source:
     path: overlays/nonprod_clusters
     repoURL: git@github.com:cshulman/ocp_gitops_config.git
-    targetRevision: HEAD
+    targetRevision: overlay_testing
   syncPolicy:
     automated: {}
     syncOptions:
