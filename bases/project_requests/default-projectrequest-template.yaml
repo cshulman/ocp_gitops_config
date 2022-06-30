@@ -2,6 +2,7 @@ apiVersion: template.openshift.io/v1
 kind: Template
 metadata:
   annotations:
+    argocd.argoproj.io/sync-wave: "-75"
     argocd.argoproj.io/sync-options: Validate=false
   creationTimestamp: null
   name: project-request

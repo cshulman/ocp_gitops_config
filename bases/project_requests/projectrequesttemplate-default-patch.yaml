@@ -2,7 +2,7 @@ apiVersion: redhatcop.redhat.io/v1alpha1
 kind: Patch
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "-25"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name:  project-request-template
   namespace: patch-operator

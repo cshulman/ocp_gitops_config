@@ -1,6 +1,8 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-50"
   name: patch-superuser
 roleRef:
   apiGroup: rbac.authorization.k8s.io
