@@ -4,6 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-10"
   name: prep-logging-namespaces
+  namespace: openshift-gitops
 spec:
   backoffLimit: 0
   template:
