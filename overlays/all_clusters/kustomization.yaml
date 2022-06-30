@@ -6,5 +6,9 @@ bases:
 - ../../bases/patch_operator/
 - ../../bases/rbac/
 
+# prep for logging
+- ../../bases/gitops_sa/
+- ../../bases/logging/
+
 commonAnnotations:
   environment: all-clusters
