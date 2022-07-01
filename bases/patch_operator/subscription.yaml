@@ -11,9 +11,3 @@ spec:
   name: patch-operator
   source: community-operators
   sourceNamespace: openshift-marketplace
----
-apiVersion: operators.coreos.com/v1
-kind: OperatorGroup
-metadata:
-  name: patch-operator
-  namespace: patch-operator

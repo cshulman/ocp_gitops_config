@@ -3,20 +3,11 @@ kind: Subscription
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-50"
-  name: "elasticsearch-operator"
-  namespace: "openshift-operators-redhat"
-spec:
-  channel: "stable"
-  installPlanApproval: "Automatic"
-  source: "redhat-operators"
-  sourceNamespace: "openshift-marketplace"
-  name: "elasticsearch-operator"
----
-apiVersion: operators.coreos.com/v1
-kind: OperatorGroup
-metadata:
-  annotations:
-    argocd.argoproj.io/sync-wave: "-50"
-  name: elastic-operator-group
+  name: elasticsearch-operator
   namespace: openshift-operators-redhat
-spec: {}
+spec:
+  channel: stable
+  installPlanApproval: Automatic
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  name: elasticsearch-operator

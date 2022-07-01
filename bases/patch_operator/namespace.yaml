@@ -4,3 +4,11 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-50"
   name: patch-operator
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-50"
+  name: patch-operator
+  namespace: patch-operator

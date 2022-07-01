@@ -2,7 +2,6 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   annotations:
-    #argocd.argoproj.io/sync-options: Replace=true
     argocd.argoproj.io/sync-wave: "-70"
   name: prep-logging-namespaces
   namespace: openshift-gitops

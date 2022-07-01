@@ -4,3 +4,11 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-50"
   name: namespace-configuration-operator
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-50"
+  name: namespace-configuration-operator
+  namespace: namespace-configuration-operator
