@@ -1,0 +1,22 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: Patch
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-25"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  name: remove-argo-admin
+  namespace: patch-operator
+spec:
+  serviceAccountRef:
+    name: patch-superuser
+  patches:
+    set-project-request-template:
+      targetObjectRef:
+        apiVersion: v1
+        kind: ConfigMap
+        name: argocd-cm
+        namespace: openshift-gitops
+      patchTemplate: |
+        data:
+          admin.enabled: "false"
+      patchType: application/merge-patch+json
