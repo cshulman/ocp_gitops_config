@@ -5,9 +5,6 @@ bases:
 - ../../bases/namespace_config_operator/
 - ../../bases/patch_operator/
 - ../../bases/rbac/
-
-# prep for logging
-- ../../bases/gitops_sa/
 - ../../bases/logging/
 
 commonAnnotations:

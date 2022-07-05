@@ -5,7 +5,7 @@ metadata:
   namespace: openshift-gitops
 spec:
   destination:
-    server: https://api.sbx-rosa.rt0q.p1.openshiftapps.com:6443
+    server: https://api.sandbox.3kxu.p1.openshiftapps.com:6443
   project: default
   source:
     path: overlays/sandbox_clusters
