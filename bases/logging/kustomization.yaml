@@ -1,7 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- logging_ns_prep/
 - elastic-operator-group.yaml
 - elastic-subscription.yaml
 - logging-subscription.yaml
