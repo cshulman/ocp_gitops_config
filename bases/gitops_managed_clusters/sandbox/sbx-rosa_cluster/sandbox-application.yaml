@@ -1,17 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sbx-rosa-cluster
+  name: oob-rosa-cluster
   namespace: openshift-gitops
 spec:
   destination:
-    server: https://api.sandbox.3kxu.p1.openshiftapps.com:6443
+    server: https://api.oob-rosa.bqnc.p1.openshiftapps.com:6443
   project: default
   source:
     path: overlays/sandbox_clusters
     repoURL: git@github.com:cshulman/ocp_gitops_config.git
-    targetRevision: HEAD
+    targetRevision: logging-kafka
   syncPolicy:
-    automated: {}
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
     - CreateNamespace=false
