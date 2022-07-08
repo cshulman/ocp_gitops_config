@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- elastic-operator-group.yaml
-- elastic-subscription.yaml
+- fluentd-loginstance.yaml
+- log-forwarder.yaml
 - logging-subscription.yaml
-- logging-instance.yaml
+- amq_streams/

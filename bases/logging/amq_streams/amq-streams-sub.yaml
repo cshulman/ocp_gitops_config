@@ -3,11 +3,10 @@ kind: Subscription
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-50"
-  name: elasticsearch-operator
-  namespace: openshift-operators-redhat
+  name: amq-streams
+  namespace: amq-logging
 spec:
   channel: stable
-  installPlanApproval: Automatic
+  name: amq-streams
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  name: elasticsearch-operator
