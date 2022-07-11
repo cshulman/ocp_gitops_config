@@ -5,3 +5,4 @@ resources:
 - log-forwarder.yaml
 - logging-subscription.yaml
 - amq_streams/
+- prep_ns/

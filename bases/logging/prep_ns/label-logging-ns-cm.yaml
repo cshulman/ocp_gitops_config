@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: label-logging-ns
+  namespace: patch-operator
+data:
+  script.sh: |
+    if [ ! "$(oc get ns openshift-logging -o jsonpath='{ .metadata.labels.openshift\.io\/cluster-monitoring }')" = "true" ]; then echo "Add label to openshift-logging namespace" && oc label ns openshift-logging "openshift.io/cluster-monitoring=true"; else echo "Already labeled openshift-logging namespace" && true; fi
