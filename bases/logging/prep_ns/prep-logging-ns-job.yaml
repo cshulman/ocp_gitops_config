@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: prep-logging-ns
+  namespace: patch-operator
+spec:
+  template:
+    metadata:
+      name: prep-logging-namespace
+    spec:
+      containers:
+      - name: label-openshift-logging-ns
+        image: "registry.redhat.io/openshift4/ose-cli:latest"
+        command: [ /bin/sh, /data/script.sh ]
+        volumeMounts:
+          - name: label-logging-ns
+            mountPath: /data
+      - name: annotate-openshift-logging-ns
+        image: "registry.redhat.io/openshift4/ose-cli:latest"
+        command: ['/bin/bash',  '-c', 'oc annotate namespace openshift-logging openshift.io/node-selector=""; true']
+      volumes:
+        - name: label-logging-ns
+          configMap:
+            name: label-logging-ns
+            defaultMode: 100
+      restartPolicy: OnFailure
+      dnsPolicy: "ClusterFirst"
+      serviceAccountName: "patch-superuser"
