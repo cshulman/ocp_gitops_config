@@ -24,7 +24,7 @@ spec:
         tls: false
       - name: tls
         port: 9093
-        type: route
+        type: internal
         tls: true
           #version: 3.1.0
     replicas: 3
