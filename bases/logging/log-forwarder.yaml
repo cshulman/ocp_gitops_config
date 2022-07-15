@@ -2,31 +2,39 @@ apiVersion: logging.openshift.io/v1
 kind: ClusterLogForwarder
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "10"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: instance
   namespace: openshift-logging
 spec:
   outputs:
-    - name: app-logs
+    - name: kafka-app
       type: kafka
       url: 'http://logging-kafka-kafka-bootstrap.amq-logging.svc.cluster.local:9092/app-topic'
-    - name: infra-logs
+    - name: kafka-infra
       type: kafka
       url: 'http://logging-kafka-kafka-bootstrap.amq-logging.svc.cluster.local:9092/infra-topic'
-    - name: audit-logs
+    - name: kafka-audit
       type: kafka
       url: 'http://logging-kafka-kafka-bootstrap.amq-logging.svc.cluster.local:9092/audit-topic'
   pipelines:
-    - inputRefs:
+    - name: app-logs
+      inputRefs:
         - application
       outputRefs:
-        - app-logs
-    - inputRefs:
-        - infrastructure
+        - kafka-app
+      labels:
+        logType: "application-logs"
+    - name: infra-logs
+      inputRefs:
+       - infrastructure
       outputRefs:
-        - infra-logs
-    - inputRefs:
-        - audit
+       - kafka-infra
+      labels:
+        logType: "infrastructure-logs"
+    - name: audit-logs
+      inputRefs:
+       - audit
       outputRefs:
-        - audit-logs
+       - kafka-audit
+      labels:
+        logType: "audit-logs"

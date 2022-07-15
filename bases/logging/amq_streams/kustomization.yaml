@@ -4,6 +4,6 @@ resources:
 - amq-streams-sub.yaml
 - app-topic.yaml
 - audit-topic.yaml
+- ephemeral-kafka.yaml
 - infra-topic.yaml
-- kafka-instance.yaml
 - namespace.yaml
