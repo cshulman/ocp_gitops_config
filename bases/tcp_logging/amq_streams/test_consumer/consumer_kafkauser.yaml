@@ -15,19 +15,19 @@ spec:
           type: topic
           name: app-topic
           patternType: literal
-        operation: All
+        operation: Read
         host: '*'
       - resource:
           type: topic
           name: infra-topic
           patternType: literal
-        operation: All
+        operation: Read
         host: '*'
       - resource:
           type: topic
           name: audit-topic
           patternType: literal
-        operation: All
+        operation: Read
         host: '*'
       - resource:
           type: group
