@@ -1,0 +1,37 @@
+kind: KafkaUser
+apiVersion: kafka.strimzi.io/v1beta2
+metadata:
+  name: consumer-kafkauser
+  namespace: amq-logging
+  labels:
+    strimzi.io/cluster: logging-kafka
+spec:
+  authentication:
+    type: tls
+  authorization:
+    type: simple
+    acls:
+      - resource:
+          type: topic
+          name: app-topic
+          patternType: literal
+        operation: All
+        host: '*'
+      - resource:
+          type: topic
+          name: infra-topic
+          patternType: literal
+        operation: All
+        host: '*'
+      - resource:
+          type: topic
+          name: audit-topic
+          patternType: literal
+        operation: All
+        host: '*'
+      - resource:
+          type: group
+          name: consumer-log-group
+          patternType: literal
+        operation: All
+        host: '*'

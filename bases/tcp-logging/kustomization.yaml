@@ -1,0 +1,7 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- fluentd-loginstance.yaml
+- logging-subscription.yaml
+- tcp-forwarder.yaml
+- amq_streams/
