@@ -4,6 +4,8 @@ bases:
 # Add all_clusters overlay so they're applied to management clusters
 - ../all_clusters
 
+# regular logging
+- ../../bases/logging/
 
 # Add any additional bases (with kustomization.yaml) to be applied to management clusters
 - ../../bases/tekton/
