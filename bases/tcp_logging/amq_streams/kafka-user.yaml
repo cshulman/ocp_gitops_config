@@ -22,25 +22,7 @@ spec:
         host: '*'
       - resource:
           type: topic
-          name: app-topic
-          patternType: literal
-        operation: Describe
-        host: '*'
-      - resource:
-          type: topic
           name: infra-topic
-          patternType: literal
-        operation: Write
-        host: '*'
-      - resource:
-          type: topic
-          name: infra-topic
-          patternType: literal
-        operation: Describe
-        host: '*'
-      - resource:
-          type: topic
-          name: audit-topic
           patternType: literal
         operation: Write
         host: '*'
@@ -48,5 +30,5 @@ spec:
           type: topic
           name: audit-topic
           patternType: literal
-        operation: Describe
+        operation: Write
         host: '*'
