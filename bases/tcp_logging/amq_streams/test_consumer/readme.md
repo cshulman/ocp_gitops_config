@@ -8,6 +8,6 @@ Then execute:
 Change the topic name based on the topic you wish to test. 
 `kfk console-consumer --topic <topic-name> -n <kafkacluster-ns> -c <kafkacluster-name> --consumer.config=client.properties --from-beginning`
 
-To view live logs instead of all log, remove optional `--from-beginning` flag. 
 
+To view live logs instead of all log, remove optional `--from-beginning` flag. 
 
