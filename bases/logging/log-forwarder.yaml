@@ -3,6 +3,8 @@ kind: ClusterLogForwarder
 metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  labels:
+    logging: logging-kafka
   name: instance
   namespace: openshift-logging
 spec:
