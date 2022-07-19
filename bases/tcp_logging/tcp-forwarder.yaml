@@ -13,17 +13,17 @@ spec:
       type: kafka
       url: 'tcp://logging-kafka-kafka-bootstrap.amq-logging.svc.cluster.local:9093/app-topic'
       secret:
-        name: logging-kafkauser
+        name: logging-producer
     - name: kafka-infra
       type: kafka
       url: 'tcp://logging-kafka-kafka-bootstrap.amq-logging.svc.cluster.local:9093/infra-topic'
       secret:
-        name: logging-kafkauser
+        name: logging-producer
     - name: kafka-audit
       type: kafka
       url: 'tcp://logging-kafka-kafka-bootstrap.amq-logging.svc.cluster.local:9093/audit-topic'
       secret:
-        name: logging-kafkauser
+        name: logging-producer
   pipelines:
     - name: app-logs
       inputRefs:
