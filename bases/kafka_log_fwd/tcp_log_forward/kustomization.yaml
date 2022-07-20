@@ -5,4 +5,4 @@ resources:
 - logging-producer-secret-patch.yaml
 - tcp-forwarder.yaml
 - ../kafka/
-
+- secret-template.yaml
