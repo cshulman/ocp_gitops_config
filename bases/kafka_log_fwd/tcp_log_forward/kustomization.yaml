@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
 - logging-producer-kafkauser.yaml
 - logging-producer-secret-patch.yaml
-- secret-template.yaml
 - tcp-forwarder.yaml
 - ../kafka/
 
