@@ -10,7 +10,7 @@ spec:
   source:
     path: overlays/sandbox_clusters
     repoURL: git@github.com:cshulman/ocp_gitops_config.git
-    targetRevision: kafka-logging
+    targetRevision: secure-kafka
   syncPolicy:
     automated:
       prune: true
