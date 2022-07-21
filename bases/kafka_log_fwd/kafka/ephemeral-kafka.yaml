@@ -1,3 +1,5 @@
+# https://access.redhat.com/documentation/en-us/red_hat_amq_streams/2.1/html-single/deploying_and_upgrading_amq_streams_on_openshift/index#kafka-cluster-str
+# https://access.redhat.com/documentation/en-us/red_hat_amq_streams/2.1/html-single/configuring_amq_streams_on_openshift/index#proc-config-kafka-str
 apiVersion: kafka.strimzi.io/v1beta2
 kind: Kafka
 metadata:

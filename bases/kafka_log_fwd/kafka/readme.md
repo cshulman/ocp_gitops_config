@@ -28,4 +28,14 @@ oc run <consumer-pod-name>-ti --image=registry.redhat.io/amq7/amq-streams-kafka-
 
 Note that if the command is being run in the same namespace as the kafka cluster, then the --bootstrap-server parameter can be modified to the local service instead of the FQDN of the service. This is done by removing -<kafka-cluster-namespace>.svc.cluster.local. Instead, the parameter would look as follows:  --bootstrap-server <kafka-cluster-bootstrap-service>:<port> 
 
+# Secure Kafka resources
+- Listener Authentication: https://access.redhat.com/documentation/en-us/red_hat_amq_streams/2.1/html-single/configuring_amq_streams_on_openshift/index#con-securing-kafka-authentication-str
 
+- Securing Kafka Brokers: https://access.redhat.com/documentation/en-us/red_hat_amq_streams/2.1/html-single/configuring_amq_streams_on_openshift/index#con-securing-kafka-authentication-str
+
+- Configuring Internal clients (in OCP cluster) to trust cluster CA: https://access.redhat.com/documentation/en-us/red_hat_amq_streams/2.1/html-single/configuring_amq_streams_on_openshift/index#configuring-internal-clients-to-trust-cluster-ca-str
+
+
+- User Authentication: https://access.redhat.com/documentation/en-us/red_hat_amq_streams/2.1/html-single/configuring_amq_streams_on_openshift/index#con-securing-client-authentication-str
+
+- Securing User access to Kafka: https://access.redhat.com/documentation/en-us/red_hat_amq_streams/2.1/html-single/configuring_amq_streams_on_openshift/index#proc-configuring-kafka-user-str
