@@ -10,6 +10,8 @@ bases:
 # Add any additional bases (with kustomization.yaml) to be applied to sandbox clusters
 - ../../bases/project_requests/ # add manifests so projects created will be as template specifies
 
+- ../../bases/kafka_log_fwd/ # add insecure log forwarding to kafka
+
 commonAnnotations:
   environment: sandbox
 

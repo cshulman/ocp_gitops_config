@@ -1,13 +1,15 @@
+# https://access.redhat.com/documentation/en-us/red_hat_amq_streams/2.1/html-single/deploying_and_upgrading_amq_streams_on_openshift/index#kafka-cluster-str
+# https://access.redhat.com/documentation/en-us/red_hat_amq_streams/2.1/html-single/configuring_amq_streams_on_openshift/index#proc-config-kafka-str
 apiVersion: kafka.strimzi.io/v1beta2
 kind: Kafka
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "-25"
+    argocd.argoproj.io/sync-wave: "-30"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   labels:
     strimzi.io/cluster: logging-kafka
   name: logging-kafka
-  namespace: amq-logging
+  namespace: kafka-logging
 spec:
   kafka:
     version: 3.1.0
@@ -36,15 +38,15 @@ spec:
       inter.broker.protocol.version: '3.1'
     storage:
       type: ephemeral
+    authorization:
+      type: simple
     listeners:
-      - name: plain
-        port: 9092
-        type: internal
-        tls: false
       - name: tls
         port: 9093
         type: internal
         tls: true
+        authentication:
+          type: tls
   zookeeper:
     replicas: 3
     template:

@@ -4,7 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-50"
   name: amq-streams
-  namespace: amq-logging
+  namespace: amq-streams-operator
 spec:
   channel: stable
   name: amq-streams

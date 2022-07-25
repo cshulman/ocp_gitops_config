@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: <cluster-name>-cluster-config
+  name: nonprod-cluster-config
   namespace: openshift-gitops
 spec:
   destination:
@@ -17,3 +17,9 @@ spec:
       selfHeal: true
     syncOptions:
     - CreateNamespace=false
+  ignoreDifferences: # don't worry about secret being patched via patch operator
+  - kind: Secret
+    name: logging-producer
+    namespace: openshift-logging
+    jsonPointers:
+    - /data

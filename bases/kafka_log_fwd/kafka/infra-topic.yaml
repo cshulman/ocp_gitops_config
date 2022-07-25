@@ -2,10 +2,10 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "-10"
+    argocd.argoproj.io/sync-wave: "-20"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-  name: app-topic
-  namespace: amq-logging
+  name: infra-topic
+  namespace: kafka-logging
   labels:
     strimzi.io/cluster: logging-kafka
 spec:

@@ -1,0 +1,35 @@
+# https://access.redhat.com/documentation/en-us/red_hat_amq_streams/2.1/html-single/configuring_amq_streams_on_openshift/index#con-securing-client-authorization-str
+kind: KafkaUser
+apiVersion: kafka.strimzi.io/v1beta2
+metadata:
+  name: logging-producer
+  namespace: kafka-logging
+  labels:
+    strimzi.io/cluster: logging-kafka
+  annotations:
+    argocd.argoproj.io/sync-wave: "-15"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  authentication:
+    type: tls
+  authorization:
+    type: simple
+    acls:
+      - resource:
+          type: topic
+          name: app-topic
+          patternType: literal
+        operation: Write
+        host: '*'
+      - resource:
+          type: topic
+          name: infra-topic
+          patternType: literal
+        operation: Write
+        host: '*'
+      - resource:
+          type: topic
+          name: audit-topic
+          patternType: literal
+        operation: Write
+        host: '*'

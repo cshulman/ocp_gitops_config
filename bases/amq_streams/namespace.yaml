@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-50"
-  name: amq-logging
+  name: amq-streams-operator
 ---
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
@@ -11,4 +11,4 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-50"
   name: amq-streams-og
-  namespace: amq-logging
+  namespace: amq-streams-operator

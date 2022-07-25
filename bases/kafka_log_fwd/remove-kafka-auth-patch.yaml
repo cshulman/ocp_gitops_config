@@ -1,0 +1,23 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: Patch
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-25"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  name: remove-kafka-auth
+  namespace: patch-operator
+spec:
+  serviceAccountRef:
+    name: patch-superuser
+  patches:
+    remove-kafka-auth-insecure:
+      targetObjectRef:
+        apiVersion: kafka.strimzi.io/v1beta2
+        kind: Kafka
+        name: logging-kafka
+        namespace: kafka-logging
+      patchTemplate: |
+        spec:
+          kafka:
+            authorization: null
+      patchType: application/merge-patch+json

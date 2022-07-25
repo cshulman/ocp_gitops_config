@@ -12,6 +12,8 @@ bases:
 - ../../bases/gitops_managed_clusters/ # Add all cluster "applications" for management cluster to manage
 - ../../bases/misc/ # remove default argo admin user
 
+- ../../bases/kafka_log_fwd/tcp_log_forward/ # add secure log forwarding to kafka
+
 commonAnnotations:
   environment: management
 

@@ -9,6 +9,8 @@ bases:
 
 # Add any additional bases (with kustomization.yaml) to be applied to production clusters
 
+- ../../bases/kafka_log_fwd/tcp_log_forward/ # add secure log forwarding to kafka
+
 commonAnnotations:
   environment: production
 

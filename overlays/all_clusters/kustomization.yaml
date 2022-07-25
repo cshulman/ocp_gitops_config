@@ -5,6 +5,9 @@ bases:
 - ../../bases/namespace_config_operator/
 - ../../bases/patch_operator/
 - ../../bases/rbac/
+- ../../bases/logging/
+- ../../bases/amq_streams/
+
 
 commonAnnotations:
   environment: all-clusters
