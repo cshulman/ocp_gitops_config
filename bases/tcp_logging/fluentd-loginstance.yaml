@@ -1,0 +1,18 @@
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogging
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-25"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  labels:
+    logging: logging-kafka
+  name: instance
+  namespace: openshift-logging
+spec:
+  collection:
+    logs:
+      type: "fluentd"
+      fluentd:
+        tolerations:
+          - operator: Exists # universal toleration so deployed on all nodes regardless of taints
+  managementState: Managed

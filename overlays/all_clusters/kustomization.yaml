@@ -9,6 +9,5 @@ bases:
 - ../../bases/amq_streams/
 
 
-
 commonAnnotations:
   environment: all-clusters
