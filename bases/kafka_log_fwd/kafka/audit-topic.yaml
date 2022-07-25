@@ -5,7 +5,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "-20"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: audit-topic
-  namespace: amq-logging
+  namespace: kafka-logging
   labels:
     strimzi.io/cluster: logging-kafka
 spec:

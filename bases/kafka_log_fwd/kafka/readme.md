@@ -4,13 +4,13 @@ To test the kafka cluster & topic configuration, a producer is needed to write i
 - Producer:
 To create a temporary producer  for a topic called my-topic, in a kafka cluster with the configuration in this repository run the following:
 
-oc run kafka-producer -ti --image=registry.redhat.io/amq7/amq-streams-kafka-31-rhel8:2.1.0 --rm=true --restart=Never -- bin/kafka-console-producer.sh --broker-list logging-kafka-kafka-bootstrap.amq-logging.svc.cluster.local:9092 --topic my-topic
+oc run kafka-producer -ti --image=registry.redhat.io/amq7/amq-streams-kafka-31-rhel8:2.1.0 --rm=true --restart=Never -- bin/kafka-console-producer.sh --broker-list logging-kafka-kafka-bootstrap.kafka-logging.svc.cluster.local:9092 --topic my-topic
 
 
 - Consumer:
 To create a temporary consumer, for a topic called my-topic, in a kafka cluster with the configuration in this repository run the following:
 
-oc run kafka-consumer -ti --image=registry.redhat.io/amq7/amq-streams-kafka-31-rhel8:2.1.0 --rm=true --restart=Never -- bin/kafka-console-consumer.sh --bootstrap-server logging-kafka-kafka-bootstrap.amq-logging.svc.cluster.local:9092 --topic my-topic --from-beginning
+oc run kafka-consumer -ti --image=registry.redhat.io/amq7/amq-streams-kafka-31-rhel8:2.1.0 --rm=true --restart=Never -- bin/kafka-console-consumer.sh --bootstrap-server logging-kafka-kafka-bootstrap.kafka-logging.svc.cluster.local:9092 --topic my-topic --from-beginning
 
 note: to view live logs only, remove `--from-beginning` flag from consumer run command.
 

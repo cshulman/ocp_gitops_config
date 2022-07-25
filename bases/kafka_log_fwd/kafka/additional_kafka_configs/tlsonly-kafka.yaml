@@ -9,7 +9,7 @@ metadata:
   labels:
     strimzi.io/cluster: logging-kafka
   name: logging-kafka
-  namespace: amq-logging
+  namespace: kafka-logging
 spec:
   kafka:
     version: 3.1.0

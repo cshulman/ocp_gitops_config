@@ -3,7 +3,7 @@ kind: KafkaUser
 apiVersion: kafka.strimzi.io/v1beta2
 metadata:
   name: logging-producer
-  namespace: amq-logging
+  namespace: kafka-logging
   labels:
     strimzi.io/cluster: logging-kafka
   annotations:

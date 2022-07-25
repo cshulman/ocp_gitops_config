@@ -11,13 +11,13 @@ spec:
   outputs:
     - name: kafka-app
       type: kafka
-      url: 'http://logging-kafka-kafka-bootstrap.amq-logging.svc.cluster.local:9092/app-topic'
+      url: 'http://logging-kafka-kafka-bootstrap.kafka-logging.svc.cluster.local:9092/app-topic'
     - name: kafka-infra
       type: kafka
-      url: 'http://logging-kafka-kafka-bootstrap.amq-logging.svc.cluster.local:9092/infra-topic'
+      url: 'http://logging-kafka-kafka-bootstrap.kafka-logging.svc.cluster.local:9092/infra-topic'
     - name: kafka-audit
       type: kafka
-      url: 'http://logging-kafka-kafka-bootstrap.amq-logging.svc.cluster.local:9092/audit-topic'
+      url: 'http://logging-kafka-kafka-bootstrap.kafka-logging.svc.cluster.local:9092/audit-topic'
   pipelines:
     - name: app-logs
       inputRefs:

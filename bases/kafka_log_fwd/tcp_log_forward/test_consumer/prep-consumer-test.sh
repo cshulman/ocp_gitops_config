@@ -3,9 +3,12 @@
 # kafka cluster name
 KAFKA_CLUSTER=logging-kafka
 # kafka cluster ns
-KAFKA_NAMESPACE=amq-logging
+KAFKA_NAMESPACE=kafka-logging
 # name of consumer kafka user
 KAFKA_USER=consumer-kafkauser
+
+# create consumer if not created already
+oc create -f consumer_kafkauser.yaml
 
 # if ran before clear collected files before running again
 rm truststore.jks user.p12 client.properties

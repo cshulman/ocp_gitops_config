@@ -15,7 +15,7 @@ spec:
         apiVersion: kafka.strimzi.io/v1beta2
         kind: Kafka
         name: logging-kafka
-        namespace: amq-logging
+        namespace: kafka-logging
       patchTemplate: |
         spec:
           kafka:
