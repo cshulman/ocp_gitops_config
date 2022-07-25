@@ -17,3 +17,10 @@ spec:
       selfHeal: true
     syncOptions:
     - CreateNamespace=false
+  ignoreDifferences: # don't worry about secret being patched via patch operator
+  - group: kafka.strimzi.io
+    kind: Kafka
+    name: logging-kafka
+    namespace: kafka-logging
+    jsonPointers:
+    - /spec
