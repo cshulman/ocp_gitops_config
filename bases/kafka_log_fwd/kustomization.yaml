@@ -4,4 +4,5 @@ resources:
 - log-forwarder.yaml
 - remove-kafka-auth-patch.yaml
 - kafka/
+- connect-kafka/
 
