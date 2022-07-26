@@ -5,9 +5,9 @@ metadata:
   name: connect-datadog
   namespace: kafka-logging
   annotations:
+    strimzi.io/use-connector-resources: "true"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "15"
-    strimzi.io/use-connector-resources: "true"
   labels:
     strimzi.io/cluster: logging-kafka
 spec:
