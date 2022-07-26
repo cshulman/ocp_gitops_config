@@ -1,0 +1,40 @@
+kind: KafkaUser
+apiVersion: kafka.strimzi.io/v1beta2
+metadata:
+  name: datadog-connect-consumer
+  namespace: kafka-logging
+  labels:
+    strimzi.io/cluster: logging-kafka
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  authentication:
+    type: tls
+  authorization:
+    type: simple
+    acls:
+# connect cluster topics needed. vary based on name of connect cluster
+      - resource:
+          type: topic
+          name: connect-datadog-status # <connect-cluster>-cluster-status
+          patternType: literal
+        operation: All
+        host: '*'
+      - resource:
+          type: topic
+          name: connect-datadog-offsets # <connect-cluster>-cluster-offsets
+          patternType: literal
+        operation: All
+        host: '*'
+      - resource:
+          type: topic
+          name: connect-datadog-configs # <connect-cluster>-cluster-configs
+          patternType: literal
+        operation: All
+        host: '*'
+      - resource:
+          type: group
+          name: connect-datadog-group
+          patternType: literal
+        operation: All
+        host: '*'

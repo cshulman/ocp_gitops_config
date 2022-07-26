@@ -8,6 +8,7 @@ bases:
 - ../../bases/project_requests/ # add manifests so projects created will be as template specifies
 
 - ../../bases/kafka_log_fwd/ # add insecure log forwarding to kafka
+- ../../bases/kafka_log_fwd/connect-kafka/ # add insecure kafka connect cluster creation
 
 commonAnnotations:
   environment: sandbox

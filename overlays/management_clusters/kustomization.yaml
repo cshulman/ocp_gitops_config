@@ -10,6 +10,7 @@ bases:
 - ../../bases/misc/ # remove default argo admin user
 
 - ../../bases/kafka_log_fwd/tcp_log_forward/ # add secure log forwarding to kafka
+- ../../bases/kafka_log_fwd/connect-kafka/secure/ # add secure kafka connect cluster creation
 
 commonAnnotations:
   environment: management

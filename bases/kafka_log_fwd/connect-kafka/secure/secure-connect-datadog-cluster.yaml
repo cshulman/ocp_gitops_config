@@ -1,0 +1,47 @@
+# https://access.redhat.com/documentation/en-us/red_hat_amq_streams/2.1/html-single/configuring_amq_streams_on_openshift/index#proc-kafka-connect-config-str
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaConnect
+metadata:
+  name: connect-datadog
+  namespace: kafka-logging
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "15"
+    strimzi.io/use-connector-resources: "true"
+  labels:
+    strimzi.io/cluster: logging-kafka
+spec:
+  version: 3.1.0
+  replicas: 3
+  authentication:
+    type: tls
+    certificateAndKey:
+      certificate: user.crt
+      key: user.key
+      secretName: datadog-connect-consumer
+  bootstrapServers: logging-kafka-kafka-bootstrap:9093 # svc only since in same ns
+  tls:
+    trustedCertificates:
+      - secretName: logging-kafka-cluster-ca-cert
+        certificate: ca.crt
+  config:
+    group.id: connect-datadog-group
+    offset.storage.topic: connect-datadog-offsets
+    config.storage.topic: connect-datadog-configs
+    status.storage.topic: connect-datadog-status
+    key.converter: org.apache.kafka.connect.json.JsonConverter
+    value.converter: org.apache.kafka.connect.json.JsonConverter
+    key.converter.schemas.enable: false
+    value.converter.schemas.enable: false
+    config.storage.replication.factor: 3
+    offset.storage.replication.factor: 3
+    status.storage.replication.factor: 3
+  build:
+    output:
+      type: docker
+      image: image-registry.openshift-image-registry.svc:5000/kafka-logging/datadog-kafka-connect-logs:v1.1.1
+    plugins:
+      - name: datadog-kafka-logs-sink-connector
+        artifacts:
+          - type: zip
+            url: https://github.com/DataDog/datadog-kafka-connect-logs/releases/download/1.1.1/datadog-kafka-connect-logs-1.1.1.zip
