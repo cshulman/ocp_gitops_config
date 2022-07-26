@@ -5,3 +5,5 @@ resources:
 - remove-kafka-auth-patch.yaml
 - kafka/
 
+commonAnnotations:
+  argocd.argoproj.io/compare-options: IgnoreExtraneous # prevent argo re-syncing loop
