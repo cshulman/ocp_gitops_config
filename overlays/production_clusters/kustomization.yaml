@@ -4,8 +4,6 @@ bases:
 # Add all_clusters overlay so they're applied to production clusters
 - ../all_clusters
 
-# regular logging
-- ../../bases/logging/
 
 # Add any additional bases (with kustomization.yaml) to be applied to production clusters
 

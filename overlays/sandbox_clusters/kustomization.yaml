@@ -4,9 +4,6 @@ bases:
 # Add all_clusters overlay so they're applied to sandbox clusters
 - ../all_clusters
 
-# regular logging
-- ../../bases/tcp_logging/
-
 # Add any additional bases (with kustomization.yaml) to be applied to sandbox clusters
 - ../../bases/project_requests/ # add manifests so projects created will be as template specifies
 
